@@ -1,0 +1,349 @@
+<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <form  #ref="ngForm">
+    
+    <!-- <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><label for="heading">Customer Registration form</label></div>
+      <div class="col-sm-4"></div>
+    </div> -->
+    <div class="row text-center">  
+      <div class="col-12">
+      <h3>Customer Registration Form</h3></div>
+
+    </div>
+ <div class="container" id="customer"> 
+<!-- 1 customer name -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- customer name  -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="un">Customer Name </label></div></div>
+      <div class="col-sm-4">
+      <input type="text" name="username" id="un" placeholder="enter customer name " ngModel class="form-control" required  #ref1="ngModel" pattern="^[a-z0-9_-]{8,15}$">  
+    </div>
+    <!-- name vali date -->
+    <div class="col-sm-4">
+    <div *ngIf="ref1.touched && ref1.invalid " class="alert alert-danger">
+      *customer name is required
+    </div>
+    <span *ngIf="ref1.errors?.pattern" class="alert alert-danger">* name should be minimum 8 characters</span>
+    
+  </div>
+  
+</div>
+
+     <!-- 2 email id  -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- email id -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="email">Email  </label></div></div>
+      <div class="col-sm-4">
+      <input type="email" name="email" id="email" placeholder="enter email id " ngModel class="form-control" required  #ref2="ngModel" minlength="6" pattern="^([a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$)" ng-model="user.email">  
+    </div>
+    <!-- email validate -->
+    <div class="col-sm-4">
+    <div *ngIf="ref2.touched && ref2.invalid " class="alert alert-danger">
+      * valid email id  is required
+    </div>
+    <div *ngIf="ref2.errors?.pattern" class="alert alert-danger">
+      * "Example@email.com"  pattern follow 
+    </div>
+  </div>
+  
+</div>
+<!-- phone number  -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- phone number  -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="pn">Phone Number </label></div></div>
+      <div class="col-sm-4">
+      <input type="number" name="pn" id="pn" placeholder="enter customer number " ngModel class="form-control" required  #ref3="ngModel" pattern="([0-9]{10}$)"  minlength="9">  
+    </div>
+    <!-- name vali date -->
+    <div class="col-sm-4">
+    <div *ngIf="ref3.touched && ref3.invalid " class="alert alert-danger">
+      *phone number is required
+    </div>
+    <div *ngIf="ref3.errors?.pattern" class="alert alert-danger">* phone number should be 10 digit</div>
+    
+  </div>
+  
+</div>
+
+<!-- 4 password -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- password -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="pwd">Password </label></div></div>
+      <div class="col-sm-4">
+      <input type="password" name="pwd" id="pwd" placeholder="enter password " ngModel class="form-control" required  #ref4="ngModel" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,20}$" minlength="8">  
+    </div>
+    <!-- validate password -->
+    <div class="col-sm-4">
+    <div *ngIf="ref4.touched && ref4.invalid " class="alert alert-danger">
+      * password should be minimum 8 characters 
+    </div>
+    <div *ngIf="ref4.errors?.pattern" class="alert alert-danger">
+      * password should contain 1 Capital, 1 small character with 1 special symbol and numbers 
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<!-- 5 confirm password -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- password  confirm-->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="cpwd">Confirm Password </label></div></div>
+      <div class="col-sm-4">
+      <input type="password" name="cpwd" id="cpwd" placeholder="enter confirm password " ngModel class="form-control" required  #ref5="ngModel"  minlength="8" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,20}$">  
+    </div>
+    <!-- validate  confirm password -->
+    <div class="col-sm-4">
+    <div *ngIf="ref5.touched && ref5.invalid " class="alert alert-danger">
+      * password should be minimum 8 characters 
+    </div>
+    <div *ngIf="ref4.errors?.ref5 && ref4.value!==ref5 || ref5.errors?.pattern" class="alert alert-danger">
+      * password sholud must match
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+
+<!-- conatiner close -->
+</div>
+
+<!-- branch details  -->
+<div class="row text-center">  
+  <div class="col-12">
+  <h3>Branch Details Form</h3></div>
+
+</div>
+<div class="container" id="branch">
+
+ 
+
+
+  <!-- branch name -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- branch name  -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="bname">Branch Name </label></div></div>
+      <div class="col-sm-4">
+      <input type="text" name="bname" id="bname" placeholder="enter branch name " ngModel class="form-control" required  #ref6="ngModel" pattern="^[a-zA-Z]{4,15}$" minlength="4">  
+    </div>
+    <!-- branch validate -->
+    <div class="col-sm-4">
+    <div *ngIf="ref6.touched && ref6.invalid " class="alert alert-danger">
+      * Branch name is required
+    </div>
+    <span *ngIf="ref6.errors?.pattern" class="alert alert-danger">* name should be minimum 4 characters</span>
+    
+  </div>
+  
+</div>
+
+
+     <!-- 2 branch email id  -->
+     <div class="row" >
+
+      <div class="col-sm-2"></div>
+      <!-- branch email id -->
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="bemail"> Branch Email  </label></div></div>
+          <div class="col-sm-4">
+          <input type="email" name="bemail" id="bemail" placeholder="enter branch email id " ngModel class="form-control" required  #ref7="ngModel" minlength="6" pattern="^([a-z0-9._%+-]+@[a-z0-9._]+\.[a-z]{2,4}$)" >  
+        </div>
+        <!-- branch email validate -->
+        <div class="col-sm-4">
+        <div *ngIf="ref7.touched && ref7.invalid " class="alert alert-danger">
+          * valid email id  is required
+        </div>
+        <div *ngIf="ref7.errors?.pattern" class="alert alert-danger">
+          * "Example@email.com"  pattern follow 
+        </div>
+      </div>
+      
+    </div>
+
+<!-- branch phone number  -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- phone number  -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="bpn">Branch Phone Number </label></div></div>
+      <div class="col-sm-4">
+      <input type="number" name="bpn" id="bpn" placeholder="enter branch phone number " ngModel class="form-control" required  #ref8="ngModel" pattern="([0-9]{10}$)"  minlength="9">  
+    </div>
+    <!-- name vali date -->
+    <div class="col-sm-4">
+    <div *ngIf="ref8.touched && ref8.invalid " class="alert alert-danger">
+      * branch phone number is required
+    </div>
+    <div *ngIf="ref8.errors?.pattern" class="alert alert-danger">* branch phone number should be 10 digit</div>
+    
+  </div>
+  
+</div>
+
+<!-- branch city name -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- branch city name  -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="bcity">Branch City Name </label></div></div>
+      <div class="col-sm-4">
+      <input type="text" name="bcity" id="bcity" placeholder="enter branch city name " ngModel class="form-control" required  #ref9="ngModel" pattern="^[a-z0-9_-]{4,15}$" >  
+    </div>
+    <!-- name vali date -->
+    <div class="col-sm-4">
+    <div *ngIf="ref9.touched && ref9.invalid " class="alert alert-danger">
+      * branch city name is required
+    </div>
+    <span *ngIf="ref9.errors?.pattern" class="alert alert-danger">* name should be minimum 4 characters</span>
+    
+  </div>
+  
+</div>
+
+<!-- branch address -->
+<div class="row" >
+
+  <div class="col-sm-2"></div>
+  <!-- branch adress -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label for="baddress">Branch Address </label></div></div>
+      <div class="col-sm-4">
+      <textarea name="baddress" id="baddress" cols="43" rows="3" ngModel class="form-control" required  #ref10="ngModel" pattern="^[a-z0-9_-]{4,150}$" minlength="10"></textarea>
+        <!-- <input type="text" name="baddress" id="baddress" placeholder="enter Branch Address " ngModel class="form-control" required  #ref10="ngModel" pattern="^[a-z0-9_-]{8,105}$">   -->
+    </div>
+    <!-- branch adress validate -->
+    <div class="col-sm-4">
+    <div *ngIf="ref10.touched && ref10.invalid " class="alert alert-danger">
+      * complete Address required
+    </div>
+    <span *ngIf="ref10.errors?.pattern || ref10.errors?.minlength" class="alert alert-danger">* fill the complete address</span>
+    
+  </div>
+  
+</div>
+
+<!-- bracnch type -->
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-2"><label for="btype">Branch Type</label></div>
+  <div class="col-sm-2">
+    <div class="form-check">
+      <input type="radio" name="btype" id="btype" class="form-check-input" value="Main Branch" #ref11="ngModel" ngModel required> Main Branch
+    </div> </div>
+    <div class="col-sm-2">
+    <div class="form-check">
+      <input type="radio" name="btype" id="btype" class="form-check-input" value="Sub Branch" #ref11="ngModel" ngModel required> Sub Branch
+    </div>
+  </div>
+  <div class="col-sm-4" *ngIf="ref11.untouched && ref11.invalid">
+  * Please select branch type
+  </div>
+</div>
+
+
+<!-- bracnch business type -->
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-2"><label for="btype">Branch Business</label></div>
+  <div class="col-sm-2">
+    <div class="form-check">
+      <input type="checkbox" name="bbusiness" id="bbusiness" class="form-check-input" value="Marketing" #ref12="ngModel" ngModel required>Marketing
+    </div> </div>
+  <div class="col-sm-1">
+    <div class="form-check">
+      <input type="checkbox" name="bbusiness" id="bbusiness" class="form-check-input" value="IT" #ref12="ngModel" ngModel required>IT
+    </div> </div>
+  <div class="col-sm-1">
+    <div class="form-check">
+      <input type="checkbox" name="bbusiness" id="bbusiness" class="form-check-input" value="BPO" #ref12="ngModel" ngModel required>BPO
+    </div> </div>
+  <div class="col-sm-1">
+    <div class="form-check">
+      <input type="checkbox" name="bbusiness" id="bbusiness" class="form-check-input" value="Electonics" #ref12="ngModel" ngModel required>Electonics
+    </div> </div>
+  <div class="col-sm-1">
+    <div class="form-check">
+      <input type="checkbox" name="bbusiness" id="bbusiness" class="form-check-input" value="Sales" #ref12="ngModel" ngModel required>Sales
+    </div> </div>
+    <div class="col-sm-4" *ngIf="">
+      * please select checkboxes above related 
+    </div>
+
+    <!-- <div class="col-sm-2">
+    <div class="form-check">
+      <input type="radio" name="btype" id="btype" class="form-check-input" value="Sub Branch" #ref11="ngModel" ngModel required> Sub Branch
+    </div>
+  </div> -->
+</div>
+
+
+<!-- branch close  -->
+</div>
+
+
+<div class="row">
+  <div class="col-12 text-center">
+    
+    <input type="submit" value="+ ADD BRANCH" id="submit" name="submit" [disabled]="ref.invalid" class="btn btn-light" routerLink="./formvalidation"></div>
+</div>
+<div class="row">
+  <div class="col-12 text-center "><input type="submit" value=" SUBMIT" id="submit" name="submit"  class="btn btn-primary" routerLink="./formvalidation"></div>
+</div>
+
+
+
+<!-- login button  -->
+<!-- 
+<div class="text-center">
+  <button type="submit" class="btn btn-success" [disabled]="ref.invalid">  login</button>
+</div> -->
+
+  </form>
+  
+</body>
+</html>

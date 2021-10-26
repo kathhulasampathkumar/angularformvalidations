@@ -1,0 +1,76 @@
+body{
+    background-color: skyblue;
+}
+h3{
+    color: tomato;
+    text-transform: capitalize;
+}
+.customer , .branch{
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+label{
+    text-transform: capitalize;
+    font-weight: bold;
+
+    
+}
+
+#customer,#branch{
+    background-color: #fff;
+    border: 1px solid gray;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.container{
+    border-radius: 20px;
+}
+input[type=text],input[type=number],input[type=password]
+,input[type=email ],textarea,input[type=submit ]
+
+
+
+{
+    border: 1px solid gray;
+    /* background-color: lawngreen; */
+    text-align: center;
+    /* text-transform: capitalize; */
+    padding: 2px;
+    margin-bottom: 10px;
+    
+}
+input[type=submit]{
+    border: 2px solid blue;
+    padding: 5px;
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+
+/* 
+input[type=submit]{
+    padding: 5px;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    background-color: orange;
+}
+input[type=submit]:hover{
+    background-color: yellow;
+} */
+
+.header{
+    text-align: center;
+    color: white;
+    background-color: gray;
+    padding: 10px;
+    font-weight: bolder;
+}
+.header span{
+    color: orange;
+    font-weight: bold;
+
+}
+
